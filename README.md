@@ -11,7 +11,7 @@ Arquivo context.xml do servidor
 	    driverClass="com.mysql.jdbc.Driver" 
 	    jdbcUrl="jdbc:mysql://localhost:3306/sigemdb"
 	    user="root" 
-	    password="If07Nt13" 
+	    password="*******" 
 	    minPoolSize="3" 
 	    maxPoolSize="3"/>
 
