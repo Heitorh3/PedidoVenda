@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#equipamentos#CadastroEquipamento.xhtml"
+  PATH="/equipamentos/CadastroEquipamento.xhtml" SHAPE="192,96,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#usuarios#CadastroUsuario.xhtml"
+  PATH="/usuarios/CadastroUsuario.xhtml" SHAPE="184,184,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+</PROCESS>

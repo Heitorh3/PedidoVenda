@@ -5,7 +5,7 @@ $(function() {
 	});	
 	
 	$('.js-selected').bind('click', function(event) {
-		$('.js-selected').toggleClass('is-selected');		
-		event.preventDefault();
+		//$('.js-selected').toggleClass('is-selected');		
+		//event.preventDefault();
 	});	
 });
