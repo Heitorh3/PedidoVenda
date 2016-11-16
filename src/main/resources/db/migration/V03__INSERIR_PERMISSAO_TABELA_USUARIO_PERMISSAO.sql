@@ -1,0 +1,1 @@
+INSERT INTO `usuario_permissao` VALUES ('heitor','admin',1);

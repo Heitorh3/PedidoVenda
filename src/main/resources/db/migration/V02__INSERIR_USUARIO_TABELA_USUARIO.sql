@@ -1,0 +1,1 @@
+INSERT INTO `usuario` VALUES (1,'heitorh3@gmail.com','heitor','1','HEITOR CARVALHO DE ALMEIDA NETO','admin','8df622085bbc92f9e2d9c850e58dba0e','MASCULINO','3491563457',1);
