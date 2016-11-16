@@ -33,6 +33,10 @@ public class Cliente implements Serializable{
 	@Column(name = "telefone")
 	private String telefone;
 	
+	@NotEmpty(message = "O telefone celular não pode ser nulo!")
+	@Column(name = "celular")
+	private String celular;
+	
 	@Column(name = "email")
 	private String email;
 	
@@ -65,6 +69,15 @@ public class Cliente implements Serializable{
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 	public String getEmail() {
