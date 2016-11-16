@@ -2,19 +2,43 @@ package br.com.model.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+	
+	@Column(name = "rua")
 	private String rua;
+	
+	@Column(name = "bairro")
 	private String bairro;
+	
+	@Column(name = "cidade")
 	private String cidade;
+	
+	@NotBlank(message = "O CEP é obrigatório")
 	private String cep;
 	private String estado;
+
+    @ManyToOne
+	@JoinColumn(name = "codigo_cliente")
+    private Cliente cliente;
 	
 	public Endereco() {
 		super();
@@ -66,6 +90,14 @@ public class Endereco implements Serializable{
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	@Override

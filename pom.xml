@@ -118,12 +118,12 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Bean Validation -->
+		<!-- Hibernate validator -->
 		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-bean-validation-module-impl</artifactId>
-			<version>${deltaspike.version}</version>
-			<scope>runtime</scope>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.2.Final</version>
+			<scope>compile</scope>
 		</dependency>
 		
 		<!-- Glassfish -->
