@@ -2,6 +2,7 @@ package br.com.model.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -26,13 +27,24 @@ public class ClientesManager implements Serializable{
 	
 	private List<Cliente> clientes = new ArrayList<>();
 	
-	@Inject
-	private Cliente clienteEdicao;
+	private Cliente clienteEdicao = new Cliente();
 	
+	
+	@Inject
 	private Endereco enderecoEdicao;
 	
-	
 	public ClientesManager() {
+		List<Endereco> enderecosJoao = new ArrayList<>();
+		enderecosJoao.addAll(Arrays.asList(
+				new Endereco("Rua José Fonseca", "1000", "Centro", "Uberlândia"),
+				new Endereco("Av. Cesário Alvim", "12", "Brasil", "Belo Horizonte"),
+				new Endereco("Av. Afonso Pena", "1280", "Centro", "Uberaba")));
+		Cliente joao = new Cliente();
+		joao.setNome("Jão de deus");
+		joao.setEnderecos(enderecosJoao);
+		clientes.add(joao);
+		
+		clienteEdicao.setEnderecos(enderecosJoao);
 	}
 	
 	public void salvar(){

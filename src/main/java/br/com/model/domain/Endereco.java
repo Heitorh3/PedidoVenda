@@ -34,6 +34,11 @@ public class Endereco implements Serializable{
 	
 	@NotBlank(message = "O CEP é obrigatório")
 	private String cep;
+	
+	@Column(name = "numero")
+	private String numero;
+	
+	@Column(name = "estado")
 	private String estado;
 
     @ManyToOne
@@ -43,6 +48,15 @@ public class Endereco implements Serializable{
 	public Endereco() {
 		super();
 	}
+	
+	public Endereco(String rua, String bairro, String cidade, String numero) {
+		super();
+		this.rua = rua;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.numero = numero;
+	}
+
 
 	public Long getCodigo() {
 		return codigo;
@@ -99,6 +113,16 @@ public class Endereco implements Serializable{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
 
 	@Override
 	public int hashCode() {

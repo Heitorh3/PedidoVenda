@@ -64,8 +64,11 @@
 						<p:dataTable value="#{clientesManager.clienteEdicao.enderecos}" var="endereco"
 							emptyMessage="O cliente ainda não possui endereços"
 							style="margin-top: 10px" id="enderecosTable">
+							<p:column headerText="CEP" priority="6">
+								<h:outputText value="#{endereco.cep}"/>
+							</p:column>
 							<p:column headerText="Logradouro">
-								<h:outputText value="#{endereco.logradouro}"/>
+								<h:outputText value="#{endereco.rua}"/>
 							</p:column>
 							<p:column headerText="Número">
 								<h:outputText value="#{endereco.numero}"/>
@@ -75,6 +78,9 @@
 							</p:column>
 							<p:column headerText="Cidade" priority="6">
 								<h:outputText value="#{endereco.cidade}"/>
+							</p:column>
+							<p:column headerText="Estado" priority="6">
+								<h:outputText value="#{endereco.estado}"/>
 							</p:column>
 						</p:dataTable>
 					</p:tab>
@@ -93,9 +99,13 @@
 				
 					<p:panelGrid columns="2" layout="grid" styleClass="panelgrid-noborder"
 							columnClasses="ui-grid-col-4, ui-grid-col-8">
+						<p:outputLabel value="CEP" for="cep" />
+						<p:inputText id="cep" required="true"
+							value="#{clientesManager.enderecoEdicao.cep}" />
+							
 						<p:outputLabel value="Logradouro" for="logradouro" />
 						<p:inputText id="logradouro" required="true"
-							value="#{clientesManager.enderecoEdicao.logradouro}" />
+							value="#{clientesManager.enderecoEdicao.rua}" />
 						
 						<p:outputLabel value="Número" for="numero" />
 						<p:inputText id="numero" required="true"
