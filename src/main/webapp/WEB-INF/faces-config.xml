@@ -6,7 +6,7 @@
     version="2.1">
 
  	<application>
- 		<message-bundle>com.pedidoVenda.Messages</message-bundle>
+ 		<message-bundle>com.hermes.Messages</message-bundle>
 		<locale-config>
 			<default-locale>pt_BR</default-locale>
 		</locale-config>
