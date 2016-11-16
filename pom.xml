@@ -5,16 +5,17 @@
 	<artifactId>PedidoVenda</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- DeltaSpike version -->
-		<deltaspike.version>1.6.0</deltaspike.version>
+		<deltaspike.version>1.7.2</deltaspike.version>
+
 		<!-- Weld Version -->
 		<weld.version>2.3.3.Final</weld.version>
 	</properties>
-	
+
 	<repositories>
 		<!-- Primefaces repository -->
 		<repository>
@@ -24,7 +25,7 @@
 			<layout>default</layout>
 		</repository>
 	</repositories>
-	
+
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
@@ -38,6 +39,18 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.deltaspike.distribution</groupId>
+				<artifactId>distributions-bom</artifactId>
+				<version>${deltaspike.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<!-- POI -->
@@ -105,14 +118,14 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Hibernate validator -->
+		<!-- Bean Validation -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.1.2.Final</version>
-			<scope>compile</scope>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-bean-validation-module-impl</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>runtime</scope>
 		</dependency>
-
+		
 		<!-- Glassfish -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
@@ -150,21 +163,10 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Ehcache 
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>2.10.1</version>
-			<scope>compile</scope>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
-			<version>4.3.6.Final</version>
-			<scope>compile</scope>
-		</dependency>
-		-->
+		<!-- Ehcache <dependency> <groupId>net.sf.ehcache</groupId> <artifactId>ehcache</artifactId> 
+			<version>2.10.1</version> <scope>compile</scope> <type>pom</type> </dependency> 
+			<dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-ehcache</artifactId> 
+			<version>4.3.6.Final</version> <scope>compile</scope> </dependency> -->
 
 		<!-- Logging log4j -->
 		<dependency>
@@ -198,7 +200,7 @@
 			<artifactId>groovy-all</artifactId>
 			<version>2.4.0</version>
 		</dependency>
-		
+
 		<!-- DeltaSpike Core -->
 		<dependency>
 			<groupId>org.apache.deltaspike.core</groupId>
@@ -228,6 +230,6 @@
 			<version>${deltaspike.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 	</dependencies>
 </project>
