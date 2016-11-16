@@ -51,7 +51,6 @@ public class Cliente implements Serializable{
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	public Cliente() {
-		super();
 	}
 
 	public Long getCodigo() {
