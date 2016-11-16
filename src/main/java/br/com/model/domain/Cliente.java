@@ -37,11 +37,18 @@ public class Cliente implements Serializable{
 	@Column(name = "celular")
 	private String celular;
 	
+	@NotEmpty(message = "O CPF não pode ser nulo!")
+	@Column(name = "cpf")
+	private String cpf;
+	
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "observacoes")
+	private String observacoes;
+	
 	@OneToMany(mappedBy = "endereco")
-	private List<Endereco> endereco = new ArrayList<>();
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	public Cliente() {
 		super();
@@ -70,8 +77,15 @@ public class Cliente implements Serializable{
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
 	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public String getCelular() {
 		return celular;
 	}
@@ -88,12 +102,20 @@ public class Cliente implements Serializable{
 		this.email = email;
 	}
 
-	public List<Endereco> getEndereco() {
-		return endereco;
+	public List<Endereco> getEnderecos() {
+		return enderecos;
 	}
 
-	public void setEndereco(List<Endereco> endereco) {
-		this.endereco = endereco;
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+	
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
 	@Override
