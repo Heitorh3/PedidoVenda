@@ -6,17 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.model.domain.Cliente;
 import br.com.model.domain.Endereco;
 import br.com.model.service.ClienteService;
 import br.com.model.service.exception.NomeClienteJaCadastradoException;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class ClientesManager implements Serializable{
 
@@ -27,7 +27,8 @@ public class ClientesManager implements Serializable{
 	
 	private List<Cliente> clientes = new ArrayList<>();
 	
-	private Cliente clienteEdicao = new Cliente();
+	@Inject
+	private Cliente clienteEdicao;
 	
 	
 	@Inject

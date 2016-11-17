@@ -38,10 +38,10 @@ public class Cliente implements Serializable{
 	private String celular;
 	
 	@NotEmpty(message = "O CPF não pode ser nulo!")
-	@Column(name = "cpf")
+	@Column(name = "cpf", nullable = false, unique = true)
 	private String cpf;
 	
-	@Column(name = "email")
+	@Column(name = "email",unique = true)
 	private String email;
 	
 	@Column(name = "observacoes")
