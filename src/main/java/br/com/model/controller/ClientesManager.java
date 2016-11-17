@@ -28,11 +28,17 @@ public class ClientesManager implements Serializable{
 	
 	private List<Cliente> clientes = new ArrayList<>();
 	
-	private Cliente clienteEdicao = new Cliente();
+	@Inject
+	private Cliente clienteEdicao;
 	
 	private Endereco enderecoEdicao;
 
-	public ClientesManager() {
+	@PostConstruct
+	public void inicializar(){
+		popularEndereco();
+	}
+
+	private void popularEndereco() {
 		List<Endereco> enderecosJoao = new ArrayList<>();
 		enderecosJoao.addAll(Arrays.asList(
 				new Endereco("Rua José Fonseca", "1000", "Centro", "Uberlândia"),
@@ -46,6 +52,9 @@ public class ClientesManager implements Serializable{
 		clienteEdicao.setEnderecos(enderecosJoao);
 	}
 	
+	public ClientesManager() {
+	}
+	
 	public void salvar(){
 		try {
 			service.salvar(clienteEdicao);
@@ -56,7 +65,7 @@ public class ClientesManager implements Serializable{
 	}
 	
 	public void novoEndereco() {
-		enderecoEdicao = new Endereco();
+		this.enderecoEdicao = new Endereco();
 	}
 	
 	public String novoCliente() {
