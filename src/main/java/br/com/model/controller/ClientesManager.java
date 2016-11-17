@@ -2,10 +2,8 @@ package br.com.model.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -17,10 +15,13 @@ import br.com.model.domain.Endereco;
 import br.com.model.service.ClienteService;
 import br.com.model.service.exception.NomeClienteJaCadastradoException;
 
-@Named("clientesManager")
+@Named
 @ViewScoped
-public class ClientesManager implements Serializable{
+public class ClientesManager implements Serializable {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Inject
@@ -33,28 +34,6 @@ public class ClientesManager implements Serializable{
 	
 	private Endereco enderecoEdicao;
 
-	@PostConstruct
-	public void inicializar(){
-		popularEndereco();
-	}
-
-	private void popularEndereco() {
-		List<Endereco> enderecosJoao = new ArrayList<>();
-		enderecosJoao.addAll(Arrays.asList(
-				new Endereco("Rua José Fonseca", "1000", "Centro", "Uberlândia"),
-				new Endereco("Av. Cesário Alvim", "12", "Brasil", "Belo Horizonte"),
-				new Endereco("Av. Afonso Pena", "1280", "Centro", "Uberaba")));
-		Cliente joao = new Cliente();
-		joao.setNome("Jão de deus");
-		joao.setEnderecos(enderecosJoao);
-		clientes.add(joao);
-		
-		clienteEdicao.setEnderecos(enderecosJoao);
-	}
-	
-	public ClientesManager() {
-	}
-	
 	public void salvar(){
 		try {
 			service.salvar(clienteEdicao);
