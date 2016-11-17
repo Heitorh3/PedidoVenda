@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -16,7 +17,7 @@ import br.com.model.domain.Endereco;
 import br.com.model.service.ClienteService;
 import br.com.model.service.exception.NomeClienteJaCadastradoException;
 
-@Named
+@Named("clientesManager")
 @ViewScoped
 public class ClientesManager implements Serializable{
 
@@ -27,13 +28,10 @@ public class ClientesManager implements Serializable{
 	
 	private List<Cliente> clientes = new ArrayList<>();
 	
-	@Inject
-	private Cliente clienteEdicao;
+	private Cliente clienteEdicao = new Cliente();
 	
-	
-	@Inject
 	private Endereco enderecoEdicao;
-	
+
 	public ClientesManager() {
 		List<Endereco> enderecosJoao = new ArrayList<>();
 		enderecosJoao.addAll(Arrays.asList(
@@ -65,9 +63,13 @@ public class ClientesManager implements Serializable{
 		clienteEdicao = new Cliente();
 		return "CadastroCliente?faces-redirect=true";
 	}
-	
+
 	public List<Cliente> getClientes() {
 		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 
 	public Cliente getClienteEdicao() {
@@ -85,4 +87,5 @@ public class ClientesManager implements Serializable{
 	public void setEnderecoEdicao(Endereco enderecoEdicao) {
 		this.enderecoEdicao = enderecoEdicao;
 	}
+
 }
