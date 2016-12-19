@@ -19,9 +19,6 @@ import br.com.model.service.exception.NomeClienteJaCadastradoException;
 @ViewScoped
 public class ClientesManager implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Inject

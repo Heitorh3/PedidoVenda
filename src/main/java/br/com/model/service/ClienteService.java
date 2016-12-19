@@ -9,7 +9,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import br.com.model.domain.Cliente;
-import br.com.model.repository.ClienteRepository;
+import br.com.model.repository.ClientesRepository;
 import br.com.model.service.exception.NomeClienteJaCadastradoException;
 
 public class ClienteService {
@@ -17,7 +17,7 @@ public class ClienteService {
 	static Logger log = LogManager.getLogger(ClienteService.class);
 	
 	@Inject
-	private ClienteRepository clientes;
+	private ClientesRepository clientes;
 	
 	@Transactional
 	public Cliente salvar(Cliente cliente) throws NomeClienteJaCadastradoException{
